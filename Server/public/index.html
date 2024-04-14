@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    
-
 </head>
 <body>
     <div class="container">
@@ -26,8 +24,8 @@
             <h1>Automatic Tax Coding<br> System based on Large Language Models.</h1>
             <p>Elevate your potential with AI: where innovation meets intelligence. <br>    
             AI solutions tailored for your success.</p>
-            <form>
-                <input type="text" placeholder="Product name here" oninput="displayProductName()" id="productNameInput">
+            <form action="/P_NAME" method="post">
+                <input type="text" name="INPUT_P_NAME" placeholder="Product name here" oninput="displayProductName()" id="productNameInput" >
                 <button type="submit" class="btn"><img src="images/search.png" >Search</button>
                 <label for="productNameInput" id="productNameLabel">Product Name: </label>
             </form>
