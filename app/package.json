@@ -1,0 +1,30 @@
+{
+  "name": "taxo-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taxo-ai/Taxo-ai.git"
+  },
+  "author": "Jinxiang Xie, Syed Muhammad Nofel Masroor, Yongqi Liang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taxo-ai/Taxo-ai/issues"
+  },
+  "homepage": "https://github.com/Taxo-ai/Taxo-ai#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7"
+  }
+}
