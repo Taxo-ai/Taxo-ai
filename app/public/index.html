@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
+
+    <title>Taxo.ai</title>
+
     <link rel="stylesheet" href="./style.css">
     <script src="script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim" crossorigin="anonymous"></script>
-    <style>
-        .spinner-border {
-            width: 3rem;
-            height: 3rem;
-            border-width: 0.3rem;
-        }
-        </style>        
+
+    <link rel="icon" href="images/taxo.png">
 </head>
+
 <body>
 <!--
     💡IMPORTANT:  post url    :   "http://localhost/query?query=" with product name (pname)
                 response is :   "type: '蛋糕（糕点）', code: '1030201010000000000', rate: '对应的税率'"
                                         Cake                Cake's taxID                tax rate
-    📔TODO:       
-                1.We need a components to receive the response and visualize response data on the page 
-                  (or create a new page used for visualize response data)
-                2.The LLM is too slowly，so we can not receive response immediately when we click the submit btn
-                  So we need a load animation to dealing with this terrible user experience 😁
 
 -->
     <header style="margin:1%;padding:1%;" >
@@ -43,8 +37,7 @@
     <main style="margin:3%;padding:3%;" class="mb-5">
         <div class="container-fluid content text-white">
             <h1>Automatic Tax Coding<br> System based on Large Language Models.</h1>
-            <p>Elevate your potential with AI: where innovation meets intelligence. <br>    
-            AI solutions tailored for your success.</p>
+            <p>Elevate your potential with AI! Streamline Taxation with AI Precision: Your Solution for Effortless Coding</p>
             <br/>
             <form id="myForm" class="row g-2">
                 <div class="col-auto">
@@ -81,77 +74,5 @@
         </div>
     </footer>
 
-<script>
-document.getElementById('myForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 防止默认表单提交
-
-    const productName = document.querySelector('input[name="pname"]').value;
-    const url = `http://localhost:3000/query?query=${encodeURIComponent(productName)}`;
-
-    // 显示加载动画
-    const responseDiv = document.getElementById('response');
-    responseDiv.innerHTML = '<p>加载中...</p>';
-    const loadingAnimation = document.createElement('div');
-    loadingAnimation.classList.add('spinner-border');
-    loadingAnimation.setAttribute('role', 'status');
-    const loadingText = document.createElement('span');
-    loadingText.classList.add('visually-hidden');
-    loadingText.textContent = '加载中...';
-    loadingAnimation.appendChild(loadingText);
-    responseDiv.appendChild(loadingAnimation);
-
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`网络响应失败，状态码：${response.status}`);
-            }
-            return response.text(); // 接受文本格式的响应
-        })
-        .then(text => {
-            // 移除加载动画
-            responseDiv.innerHTML = '';
-            // 调试日志，检查响应的文本内容
-            console.log('响应数据:', text);
-
-            // 将文本解析为对象
-            const data = parseResponse(text);
-
-            // 处理并显示响应数据
-            if (data && data.type && data.code && data.rate) {
-                responseDiv.innerHTML = `
-                    <p>类型: ${data.type}</p>
-                    <p>代码: ${data.code}</p>
-                    <p>税率: ${data.rate}</p>
-                `;
-            } else {
-                responseDiv.innerHTML = '<p>无法获取有效的响应数据，妈的。</p>';
-                console.error('无效的响应数据:', text);
-            }
-        })
-        .catch(error => {
-            // 移除加载动画
-            responseDiv.innerHTML = '';
-            // 处理错误
-            responseDiv.innerHTML = `<p>发生错误，妈的，稍后重试。错误信息：${error.message}</p>`;
-            console.error('发生错误:', error);
-        });
-});
-
-// 解析响应字符串为对象
-function parseResponse(response) {
-    const regex = /type:\s*'([^']*)',\s*code:\s*'([^']*)'(?:,\s*rate:\s*'([^']*)')?/;
-    const match = response.match(regex);
-    if (match) {
-        return {
-            type: match[1],
-            code: match[2],
-            rate: match[3] || '未提供'
-        };
-    } else {
-        return null;
-    }
-}
-
-</script>
 </body>
 </html>
