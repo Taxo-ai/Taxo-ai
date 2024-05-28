@@ -8,7 +8,7 @@ const COZE = require('./Controller/coze'); // 导入包含 POST_P_NAME 的模块
 
 // 创建 Express 应用
 const app = express();
-const port = 80; // 使用端口 80
+const port = 3000; // 使用端口 3000
 
 // 设置静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
