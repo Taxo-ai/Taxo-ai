@@ -13,6 +13,9 @@ In order to solve this problem, we are committed to developing a large language 
 - **Multimodality**: Our model is not based on traditional data, but accesses a vector database, which has the advantage of containing not only textual information, but also multimodal information such as images and sounds. Therefore, in the future, we can realize advanced functions such as scanning goods with a camera and automatically converting them into tax service codes.
 - **Interpretability**: We can not only give the classification, but also tell you why it is so, and explain the index of classification in detail. For human confusing errors, we can tell the model by prompt engineering, so that the model can avoid similar errors.
 
+# Acknowledge
+This project is sponsored by [Microsoft for Startups Founders Hub](https://foundershub.startups.microsoft.com/signup). Microsoft for Startups Founders Hub provides free access to leading AI models through Azure, including OpenAI GPT-4, up to $150,000 in Azure credits, one-on-one mentoring from Microsoft experts, and more.
+
 # Tech Used
  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=azure-devops&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
       
