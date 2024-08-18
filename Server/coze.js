@@ -2,7 +2,7 @@
 const axios = require('axios');  
 // DEFINE NECESSARY REQUEST
 const apiUrl = 'https://api.coze.com/open_api/v2/chat';  
-const personalAccessToken = '{pat_zI8DwjQpalyA0pGNdVAGlaxCt3nhOkuyFHri9eq7nhUc1aAxAu8Kg7TRMICkr1af}'; // 个人访问令牌  
+const personalAccessToken = '{AccessToken}'; // 个人访问令牌  
 const botId = '{7341645385049341953}'; // bot ID  
 const headers = {  
     'Authorization': `Bearer ${personalAccessToken}`,  
